@@ -30,7 +30,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution]()
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/blog-preview-card-bem-css-custom-properties-F005Q3IOnz)
 - Live Site URL: [Live Site](https://a-woodworth.github.io/blog_preview_card)
 
 ### Built with
