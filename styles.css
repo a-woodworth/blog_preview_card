@@ -1,0 +1,231 @@
+@font-face {
+  font-family: 'Figtree';
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+  src: url('assets/fonts/Figtree-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Figtree';
+  font-weight: 800;
+  font-display: swap;
+  font-style: normal;
+  src: url('assets/fonts/Figtree-ExtraBold.ttf');
+}
+
+:root {
+  /* Colors */
+  --gray-500: hsl(0 0% 42%);
+  --gray-950: hsl(0 0% 7%);
+  --yellow: hsl(47 88% 63%);
+  --white: hsl(0 0% 100%);
+  /* Added colors to meet a11y color contrast ratio */
+  --hover-headline: hsl(43 89% 38%);
+  --hover-footer: hsl(228 45% 44%);
+
+  /* Radius, Shadow */
+  --radius-xs: 0.25rem;
+  --radius-s: 0.625rem;
+  --radius-m: 1.25rem;
+  --shadow: 8px 8px 0px 0px #000;
+
+  /* Spacing */
+  --spacing-50: 0.25rem;
+  --spacing-100: 0.5rem;
+  --spacing-150: 0.75rem;
+  --spacing-300: 1.5rem;
+
+  /* Typography */
+  --font-base: 'Figtree', sans-serif;
+  --leading-standard: 1.5;
+  --text-1: 800 1.5rem/1.5 var(--font-base);
+  --text-2: 500 1rem/1.5 var(--font-base);
+  --text-3: 500 0.875rem/1.5 var(--font-base);
+  --text-3-bold: 800 0.875rem/1.5 var(--font-base);
+  --text-3-bold-mobile: 800 0.75rem/1.5 var(--font-base);
+  --text-3-mobile: 500 0.75rem/1.5 var(--font-base);
+}
+
+/* CSS Reset/Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+}
+
+body,
+h1,
+h2,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+a:focus {
+  outline: 3px dotted currentColor;
+  outline-offset: 2px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Screen reader styles */
+.sr-only {
+  border: 0;
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+body {
+  background-color: var(--yellow);
+  color: var(--gray-950);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-300);
+  font-family: 'Figtree', sans-serif;
+  line-height: var(--leading-standard);
+  min-height: 100vh;
+  margin-inline: var(--spacing-300);
+}
+
+.card {
+  background-color: var(--white);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow);
+  max-width: 24rem;
+  padding-block: var(--spacing-300);
+  padding-inline: var(--spacing-300);
+  transition: transform 300ms ease-in-out;
+}
+
+.card:has(.card__title:hover) {
+  transform: translateY(-0.25rem);
+}
+
+.card__image,
+.card__body {
+  margin-block-end: var(--spacing-300);
+}
+
+.card__image img {
+  border-radius: var(--radius-s);
+  object-fit: cover;
+}
+
+.card__header {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.card__title {
+  font-size: 1.25rem;
+  margin-block-end: var(--spacing-150);
+}
+
+.card__title:hover {
+  color: var(--hover-headline);
+}
+
+.card__date {
+  font: var(--text-3-mobile);
+  margin-block: var(--spacing-150);
+}
+
+.card__category {
+  background-color: var(--yellow);
+  border-radius: var(--radius-xs);
+  font: var(--text-3-bold-mobile);
+  margin-inline-end: auto;
+  padding-block: var(--spacing-50);
+  padding-inline: var(--spacing-150);
+  transition: 0.1s ease-in-out;
+}
+
+.card__category:hover {
+  background-color: var(--gray-950);
+  color: var(--white);
+}
+
+.card__body {
+  color: var(--gray-500);
+  font: var(--text-3);
+}
+
+.card__byline {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-150);
+  font: var(--text-3-bold);
+}
+
+.card__byline a:hover {
+  text-decoration: underline;
+}
+
+.main-footer {
+  font: var(--text-3-mobile);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.main-footer a {
+  text-decoration: underline;
+}
+
+.main-footer a:hover {
+  color: var(--hover-footer);
+  text-decoration: none;
+}
+
+@media (min-width: 26rem) {
+  .card__title {
+    font-size: 1.5rem;
+  }
+
+  .card__date,
+  .main-footer {
+    font: var(--text-3);
+  }
+
+  .card__category {
+    font: var(--text-3-bold);
+  }
+
+  .card__body {
+    font: var(--text-2);
+  }
+}
+
+@media (prefers-reduced-motion) {
+  .card:has(.card__title:hover) {
+    transform: none;
+  }
+}
